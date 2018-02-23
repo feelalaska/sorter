@@ -16,7 +16,7 @@ class Sorter {
   }
   sort(indices) {
     var newArray = [];
-    var bool = true;
+    var bool = null;
 	  for (var i = 0; i < indices.length; i++) {
 		  var index = indices[i];
 		  var sortEl = this.arr[index];
@@ -40,5 +40,4 @@ class Sorter {
   setComparator(compareFunction) {
   }
 }
-
 module.exports = Sorter;
