@@ -15,23 +15,27 @@ class Sorter {
     return this.arr;
   }
   sort(indices) {
-	var array = this.arr;
-	var newArray = [];
-	for (var i = 0; i < indices.length; i++) {
-		var index = indices[i];
-		var a = array[index];
-    	newArray.push(a);
+    var newArray = [];
+    var bool = true;
+	  for (var i = 0; i < indices.length; i++) {
+		  var index = indices[i];
+		  var sortEl = this.arr[index];
+      newArray.push(sortEl);
+      this.arr[index] = bool;
     }
-	newArray.sort(function(a, b) {
+	  newArray.sort(function(a, b) {
   		return a - b;
-  });
-  var x = indices.length - 1;
-  for (var i=x; i < array.lengt; i++) {
-    var b = array[i];
-    newArray.push(b);
-  }
-  this.arr = newArray;
-	return this.arr;
+    });
+    for (var i = 0; i < newArray.length; i++) {
+      var sorted = newArray[i];
+      for (var j = 0; j < this.arr.length; j++) {
+        if (this.arr[j] == bool) {
+          this.arr[j] = sorted;
+          break;
+        }
+      }
+    }
+    return this.arr;
   }
   setComparator(compareFunction) {
   }
